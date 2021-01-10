@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "doc": "jsdoc -c jsdoc.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
     "express": "^4.17.1",
     "mongoose": "^5.11.11",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.6"
   }
 }
