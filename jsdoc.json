@@ -3,7 +3,7 @@
         "include": [
             "."
         ],
-        "includePattern": ".\\.(js|ejs)$",
+        "includePattern": ".+\\.js(doc)?$",
         "excludePattern": "(node_modules|docs)"
     },
     "plugins": [

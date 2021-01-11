@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const CampGroundSchema = new Schema({
+/**
+ * Campground schema
+ * @type {{title: String, price: String, description: String, location: String}}
+ */
+const CampgroundSchema = new Schema({
     title: String,
     price: String,
     description: String,
