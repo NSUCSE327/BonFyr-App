@@ -1,10 +1,10 @@
 {
     "source": {
         "include": [
-            "models"
+            "."
         ],
         "includePattern": ".\\.(js|ejs)$",
-        "excludePattern": "(node_modules/|docs)"
+        "excludePattern": "(node_modules|docs)"
     },
     "plugins": [
         "plugins/markdown"
