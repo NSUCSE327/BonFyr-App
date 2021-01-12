@@ -1,3 +1,7 @@
+/**
+ * express module
+ * @const
+ */
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -59,6 +63,14 @@ app.post('/campgrounds', validateCampground, catchAsync(async (req, res, next) =
     res.redirect(`/campgrounds/${campground._id}`)
 }))
 
+/**
+ * Route serving camp show page.
+ * @name get/campgrounds/:id
+ * @function
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
 app.get('/campgrounds/:id', catchAsync(async (req, res,) => {
     const campground = await Campground.findById(req.params.id)
     res.render('campgrounds/show', { campground });
