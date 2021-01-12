@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout('layouts/boilerplate')%>
 
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,3 +38,14 @@
 </body>
 
 </html>
+=======
+<h1><%= campground.title %></h1>
+    <h2><%= campground.location %></h2>
+    <p> <a href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+    </p>
+    <p>
+    <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+    </p>
+>>>>>>> 4c6b50888daaffe2fa23bf3091c7a3b1bc15af74
