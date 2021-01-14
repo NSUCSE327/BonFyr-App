@@ -49,7 +49,7 @@ module.exports.showCampground = async (req, res,) => {
 }
 
 /**
- * Function to show camp info page.
+ * Function to edit camp info page.
  * @name renderEditForm
  * @function
  * @async
@@ -67,7 +67,7 @@ module.exports.renderEditForm = async (req, res) => {
 }
 
 /**
- * Function to show camp info page.
+ * Function to update camp info page.
  * @name updateCampground
  * @function
  * @async
@@ -82,7 +82,7 @@ module.exports.updateCampground = async (req, res) => {
 }
 
 /**
- * Function to show camp info page.
+ * Function to delete camp info page.
  * @name deleteCampground
  * @function
  * @async
