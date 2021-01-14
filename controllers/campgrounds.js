@@ -1,16 +1,16 @@
 /**
+ * Module for all campground controller functions
  * @module controllers/campgrounds
  */
 const Campground = require('../models/campground');
 
 /**
- * @swagger
  * Function to list all campgrounds.
  * @name index
  * @async
  * @function
- * @param {object} req - Http Req object
- * @param {object} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
@@ -21,8 +21,8 @@ module.exports.index = async (req, res) => {
  * Function to render new camp form.
  * @name renderNewForm
  * @function
- * @param {object} req - Http Req object
- * @param {object} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
@@ -33,9 +33,9 @@ module.exports.renderNewForm = (req, res) => {
  * @name createCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {object} res - Http Res object.
- * @param {object} next - Http next object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
+ * @param {Express.next} next - Express next function.
  */
 module.exports.createCampground = async (req, res, next) => {
     const campground = new Campground(req.body.campground);
@@ -50,8 +50,8 @@ module.exports.createCampground = async (req, res, next) => {
  * @name showCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.showCampground = async (req, res,) => {
     const campground = await Campground.findById(req.params.id).populate({
@@ -72,8 +72,8 @@ module.exports.showCampground = async (req, res,) => {
  * @name renderEditForm
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.renderEditForm = async (req, res) => {
     const { id } = req.params;
@@ -90,8 +90,8 @@ module.exports.renderEditForm = async (req, res) => {
  * @name updateCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
@@ -105,8 +105,8 @@ module.exports.updateCampground = async (req, res) => {
  * @name deleteCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.deleteCampground = async (req, res) => {
     const { id } = req.params;
