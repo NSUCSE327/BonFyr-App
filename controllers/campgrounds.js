@@ -48,6 +48,14 @@ module.exports.showCampground = async (req, res,) => {
     res.render('campgrounds/show', { campground });
 }
 
+/**
+ * Function to edit camp info page.
+ * @name renderEditForm
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
 module.exports.renderEditForm = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findById(id)
@@ -58,6 +66,14 @@ module.exports.renderEditForm = async (req, res) => {
     res.render('campgrounds/edit', { campground });
 }
 
+/**
+ * Function to update camp info page.
+ * @name updateCampground
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
 module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
@@ -65,6 +81,14 @@ module.exports.updateCampground = async (req, res) => {
     res.redirect(`/campgrounds/${campground._id}`)
 }
 
+/**
+ * Function to delete camp info page.
+ * @name deleteCampground
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
 module.exports.deleteCampground = async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
