@@ -9,6 +9,15 @@ module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
 }
 
+/**
+ * Function to create a nw campground.
+ * @name createCampground
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {object} res - Http Res object.
+ * @param {object} next - Http next object.
+ */
 module.exports.createCampground = async (req, res, next) => {
     const campground = new Campground(req.body.campground);
     campground.author = req.user._id;

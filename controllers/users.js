@@ -36,3 +36,26 @@ module.exports.logout = (req, res) => {
     req.flash('success', "Goodbye!");
     res.redirect('/campgrounds');
 }
+
+module.exports.showUser = async (req, res) => {
+    const user = await User.findById(req.params.id); 
+    if(!user){
+            req.flash("error", "User not found!");
+            res.redirect("/");
+        }
+    res.render("users/show", { user });
+}
+
+// module.exports.showCampground = async (req, res,) => {
+//     const campground = await Campground.findById(req.params.id).populate({
+//         path: 'reviews',
+//         populate: {
+//             path: 'author'
+//         }
+//     }).populate('author');
+//     if (!campground) {
+//         req.flash('error', 'Cannot find that campground!');
+//         return res.redirect('/campgrounds');
+//     }
+//     res.render('campgrounds/show', { campground });
+// }
