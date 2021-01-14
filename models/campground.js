@@ -1,4 +1,5 @@
 /**
+ * Module for campground model
  * @module models/campground
  */
 

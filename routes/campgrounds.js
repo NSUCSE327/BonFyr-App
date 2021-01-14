@@ -1,3 +1,7 @@
+/**
+ * Module for all campground routes
+ * @module routes/campgrounds
+ */
 const express = require('express');
 const router = express.Router();
 const campgrounds = require('../controllers/campgrounds');

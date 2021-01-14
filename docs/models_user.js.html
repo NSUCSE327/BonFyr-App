@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/campground.js</title>
+    <title>JSDoc: Source: models/user.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/campground.js</h1>
+    <h1 class="page-title">Source: models/user.js</h1>
 
     
 
@@ -27,52 +27,28 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module models/campground
+ * @module models/user
  */
-
 const mongoose = require('mongoose');
-const Review = require('./review')
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
+
 /**
- * A Campground Schema
- * @typedef {Object} CampgroundSchema 
- * @property {string} title - A campground name
- * @property {string} image - Image url of a campground
- * @property {Number} price - Price of a Campground
- * @property {string} description - Description of a campground
- * @property {string} location - Location Detail of a campground
- * @property {string} author - Author of a campground
- * @property {string} revies - List of reviews for the campground
+ * @typedef {Object} User A User object
+ * @property {string} email - email of a user
+ * @property {string} username - username of a user
  */
-const CampgroundSchema = new Schema({
-    title: String,
-    image: String,
-    price: Number,
-    description: String,
-    location: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    ]
+const UserSchema = new Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }
 });
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
-    if (doc) {
-        await Review.deleteMany({
-            _id: {
-                $in: doc.reviews
-            }
-        })
-    }
-})
+UserSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('Campground', CampgroundSchema);</code></pre>
+module.exports = mongoose.model('User', UserSchema);</code></pre>
         </article>
     </section>
 

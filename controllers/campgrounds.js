@@ -1,3 +1,6 @@
+/**
+ * @module controllers/campgrounds
+ */
 const Campground = require('../models/campground');
 
 /**

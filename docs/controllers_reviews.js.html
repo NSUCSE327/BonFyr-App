@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/campground.js</title>
+    <title>JSDoc: Source: controllers/reviews.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/campground.js</h1>
+    <h1 class="page-title">Source: controllers/reviews.js</h1>
 
     
 
@@ -27,52 +27,29 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @module models/campground
+ * @module controllers/reviews
  */
+const Campground = require('../models/campground');
+const Review = require('../models/review');
 
-const mongoose = require('mongoose');
-const Review = require('./review')
-const Schema = mongoose.Schema;
-/**
- * A Campground Schema
- * @typedef {Object} CampgroundSchema 
- * @property {string} title - A campground name
- * @property {string} image - Image url of a campground
- * @property {Number} price - Price of a Campground
- * @property {string} description - Description of a campground
- * @property {string} location - Location Detail of a campground
- * @property {string} author - Author of a campground
- * @property {string} revies - List of reviews for the campground
- */
-const CampgroundSchema = new Schema({
-    title: String,
-    image: String,
-    price: Number,
-    description: String,
-    location: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    ]
-});
+module.exports.createReview = async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    const review = new Review(req.body.review);
+    review.author = req.user._id;
+    campground.reviews.push(review);
+    await review.save();
+    await campground.save();
+    req.flash('success', 'Created new review!');
+    res.redirect(`/campgrounds/${campground._id}`);
+}
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
-    if (doc) {
-        await Review.deleteMany({
-            _id: {
-                $in: doc.reviews
-            }
-        })
-    }
-})
-
-module.exports = mongoose.model('Campground', CampgroundSchema);</code></pre>
+module.exports.deleteReview = async (req, res) => {
+    const { id, reviewId } = req.params;
+    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await Review.findByIdAndDelete(reviewId);
+    req.flash('success', 'Successfully deleted review')
+    res.redirect(`/campgrounds/${id}`);
+}</code></pre>
         </article>
     </section>
 

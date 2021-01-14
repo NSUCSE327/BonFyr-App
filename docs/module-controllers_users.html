@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Module: controllers/users</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Module: controllers/users</h1>
 
     
 
@@ -28,7 +28,6 @@
 
 <header>
     
-        <h2></h2>
         
     
 </header>
@@ -37,45 +36,6 @@
     <div class="container-overview">
     
         
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
 
         
     
@@ -94,72 +54,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="express"><span class="type-signature">(constant) </span>express<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>express module</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -170,7 +64,7 @@
     
 
     
-    <h4 class="name" id="all/*"><span class="type-signature">(inner) </span>all/*<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~login"><span class="type-signature">(inner) </span>login<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -178,7 +72,7 @@
 
 
 <div class="description">
-    <p>Route handling error urls.</p>
+    <p>Function to login</p>
 </div>
 
 
@@ -214,13 +108,13 @@
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>req</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">object</span>
 
 
             
@@ -230,14 +124,14 @@
 
             
 
-            <td class="description last"><p>Express path</p></td>
+            <td class="description last"><p>Http Req object</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
@@ -253,7 +147,7 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Http Res object.</p></td>
         </tr>
 
     
@@ -294,7 +188,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line115">line 115</a>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line140">line 140</a>
     </li></ul></dd>
     
 
@@ -330,7 +224,7 @@
     
 
     
-    <h4 class="name" id="get/"><span class="type-signature">(inner) </span>get/<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~logout"><span class="type-signature">(inner) </span>logout<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -338,7 +232,7 @@
 
 
 <div class="description">
-    <p>Route serving camp home page.</p>
+    <p>Function to logout</p>
 </div>
 
 
@@ -374,13 +268,13 @@
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>req</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">express.path</span>
+<span class="param-type">object</span>
 
 
             
@@ -390,14 +284,14 @@
 
             
 
-            <td class="description last"><p>Express path</p></td>
+            <td class="description last"><p>Http Req object</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
@@ -413,7 +307,7 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Http Res object.</p></td>
         </tr>
 
     
@@ -454,7 +348,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line101">line 101</a>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line154">line 154</a>
     </li></ul></dd>
     
 
@@ -490,7 +384,7 @@
     
 
     
-    <h4 class="name" id="listen"><span class="type-signature">(inner) </span>listen<span class="signature">(port, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~register"><span class="type-signature">(async, inner) </span>register<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -498,7 +392,7 @@
 
 
 <div class="description">
-    <p>Function to serve on desired port</p>
+    <p>Function to register</p>
 </div>
 
 
@@ -534,13 +428,13 @@
 
         <tr>
             
-                <td class="name"><code>port</code></td>
+                <td class="name"><code>req</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">object</span>
 
 
             
@@ -550,14 +444,14 @@
 
             
 
-            <td class="description last"><p>Port number</p></td>
+            <td class="description last"><p>Http Req object</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
@@ -573,7 +467,30 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Http Res object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Next object.</p></td>
         </tr>
 
     
@@ -614,7 +531,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line140">line 140</a>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -650,7 +567,7 @@
     
 
     
-    <h4 class="name" id="use/err"><span class="type-signature">(inner) </span>use/err<span class="signature">(middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~renderLogin"><span class="type-signature">(inner) </span>renderLogin<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -658,7 +575,7 @@
 
 
 <div class="description">
-    <p>Function handling unknown errors.</p>
+    <p>Shows Register form</p>
 </div>
 
 
@@ -694,7 +611,30 @@
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Req object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
@@ -710,7 +650,7 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Http Res object.</p></td>
         </tr>
 
     
@@ -751,7 +691,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line127">line 127</a>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -787,7 +727,7 @@
     
 
     
-    <h4 class="name" id="validateCampground"><span class="type-signature">(inner) </span>validateCampground<span class="signature">(middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~renderMail"><span class="type-signature">(async, inner) </span>renderMail<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -795,7 +735,7 @@
 
 
 <div class="description">
-    <p>Function handling server side errors.</p>
+    <p>Function to generate mail form.</p>
 </div>
 
 
@@ -831,7 +771,30 @@
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Req object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
@@ -847,7 +810,7 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Http Res object.</p></td>
         </tr>
 
     
@@ -888,7 +851,327 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line46">line 46</a>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line70">line 70</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~sendMail"><span class="type-signature">(async, inner) </span>sendMail<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to send mail.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Req object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Res object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line88">line 88</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~showUser"><span class="type-signature">(async, inner) </span>showUser<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Function to show user info page.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Req object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Http Res object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_users.js.html">controllers/users.js</a>, <a href="controllers_users.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
