@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout('layouts/boilerplate')%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-</head>
+<div class="row">
+    <div class="col-6">
+        <h2><%= user.username %></h2>
 
-<body>
-    <h1>Welcome to the user profile</h1>
-
-</body>
-
-</html>
+    </div>
+    <div class="col-6">
+        <% if(currentUser){ %>
+            <a href="/users/<%=user._id%>/contact"<h2>Contact <%=user.username%></h2>
+        
+        <% } %>
+        
+    </div>
+</div>

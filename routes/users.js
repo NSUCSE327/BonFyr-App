@@ -16,4 +16,6 @@ router.route('/login')
 router.get('/logout', users.logout)
 
 router.get('/users/:id', users.showUser)
+router.post('/users/:id', users.sendMail)
+router.get('/users/:id/contact', users.renderMail)
 module.exports = router;

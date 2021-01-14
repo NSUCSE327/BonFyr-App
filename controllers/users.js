@@ -1,4 +1,13 @@
 const User = require('../models/user');
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'faker9725@gmail.com',
+        pass: '21TonystanK25!!'
+    }
+});
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
@@ -43,9 +52,43 @@ module.exports.showUser = async (req, res) => {
             req.flash("error", "User not found!");
             res.redirect("/");
         }
+    console.log(user);
     res.render("users/show", { user });
 }
 
+module.exports.renderMail = async (req, res) => {
+    const user = await User.findById(req.params.id); 
+    if(!user){
+            req.flash("error", "User not found!");
+            res.redirect("/");
+        }
+    console.log(user);
+    res.render("users/mail", { user });
+}
+
+module.exports.sendMail = async (req, res) => {
+    const user = await User.findById(req.params.id); 
+    if(!user){
+            req.flash("error", "User not found!");
+            res.redirect("/");
+        }
+    const mailOptions = {
+        from: 'faker9725@gmail.com',
+        to: user.email,
+        subject: "BonFyr: from "+req.user.username,
+        text: req.body.body
+    }
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+        } else{
+            console.log('Email sent: ' + info.response);
+            req.flash("success", "Email sent successfully!");
+            res.redirect('/campgrounds');
+        }
+    })
+    
+}
 // module.exports.showCampground = async (req, res,) => {
 //     const campground = await Campground.findById(req.params.id).populate({
 //         path: 'reviews',
