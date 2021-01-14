@@ -27,6 +27,16 @@ module.exports.renderRegister = (req, res) => {
     res.render('users/register');
 }
 
+/**
+ * Function to register
+ * @name register
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ * @param {callback} next - Http Next object.
+ */
+
 module.exports.register = async (req, res, next) => {
     try {
         const { email, username, password } = req.body;
@@ -43,22 +53,6 @@ module.exports.register = async (req, res, next) => {
     }
 }
 
-module.exports.renderLogin = (req, res) => {
-    res.render('users/login');
-}
-
-module.exports.login = (req, res) => {
-    req.flash('success', 'welcome back!');
-    const redirectUrl = req.session.returnTo || '/campgrounds';
-    delete req.session.returnTo;
-    res.redirect(redirectUrl);
-}
-
-module.exports.logout = (req, res) => {
-    req.logout();
-    req.flash('success', "Goodbye!");
-    res.redirect('/campgrounds');
-}
 
 /**
  * Function to show user info page.
@@ -119,8 +113,8 @@ module.exports.sendMail = async (req, res) => {
 
 
     /**
- * Function to show camp info page.
- * @name showCampground
+ * transporter function to send mail.
+ * @name transporter.sendMail
  * @function
  * @inner
  * @param {object} mailOptions - object containing mail required info
@@ -136,4 +130,42 @@ module.exports.sendMail = async (req, res) => {
         }
     })
     
+}
+/**
+ * Shows Register form
+ * @name renderLogin
+ * @function
+ * @sync
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
+module.exports.renderLogin = (req, res) => {
+    res.render('users/login');
+}
+/**
+ * Function to login
+ * @name login
+ * @function
+ * @sync
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
+module.exports.login = (req, res) => {
+    req.flash('success', 'welcome back!');
+    const redirectUrl = req.session.returnTo || '/campgrounds';
+    delete req.session.returnTo;
+    res.redirect(redirectUrl);
+}
+/**
+ * Function to logout
+ * @name logout
+ * @function
+ * @sync
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
+module.exports.logout = (req, res) => {
+    req.logout();
+    req.flash('success', "Goodbye!");
+    res.redirect('/campgrounds');
 }
