@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/campground.js</title>
+    <title>JSDoc: Source: routes/reviews.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/campground.js</h1>
+    <h1 class="page-title">Source: routes/reviews.js</h1>
 
     
 
@@ -27,53 +27,23 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Module for campground model
- * @module models/campground
+ * Module for all review routes
+ * @module routes/reviews
  */
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+const { validateReview, isLoggedIn, isReviewAuthor } = require('../middleware');
+const Campground = require('../models/campground');
+const Review = require('../models/review');
+const reviews = require('../controllers/reviews');
+const ExpressError = require('../utils/ExpressError');
+const catchAsync = require('../utils/catchAsync');
 
-const mongoose = require('mongoose');
-const Review = require('./review')
-const Schema = mongoose.Schema;
-/**
- * A Campground Schema
- * @typedef {Object} CampgroundSchema 
- * @property {string} title - A campground name
- * @property {string} image - Image url of a campground
- * @property {Number} price - Price of a Campground
- * @property {string} description - Description of a campground
- * @property {string} location - Location Detail of a campground
- * @property {string} author - Author of a campground
- * @property {string} revies - List of reviews for the campground
- */
-const CampgroundSchema = new Schema({
-    title: String,
-    image: String,
-    price: Number,
-    description: String,
-    location: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    ]
-});
+router.post('/', isLoggedIn, validateReview, catchAsync(reviews.createReview))
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
-    if (doc) {
-        await Review.deleteMany({
-            _id: {
-                $in: doc.reviews
-            }
-        })
-    }
-})
+router.delete('/:reviewId', isLoggedIn, isReviewAuthor, catchAsync(reviews.deleteReview))
 
-module.exports = mongoose.model('Campground', CampgroundSchema);</code></pre>
+module.exports = router;</code></pre>
         </article>
     </section>
 

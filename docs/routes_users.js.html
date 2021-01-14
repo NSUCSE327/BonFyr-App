@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/campground.js</title>
+    <title>JSDoc: Source: routes/users.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/campground.js</h1>
+    <h1 class="page-title">Source: routes/users.js</h1>
 
     
 
@@ -27,53 +27,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Module for campground model
- * @module models/campground
+ * Module for all User Routes
+ * @module routes/users
  */
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const catchAsync = require('../utils/catchAsync');
+const User = require('../models/user');
+const users = require('../controllers/users');
 
-const mongoose = require('mongoose');
-const Review = require('./review')
-const Schema = mongoose.Schema;
-/**
- * A Campground Schema
- * @typedef {Object} CampgroundSchema 
- * @property {string} title - A campground name
- * @property {string} image - Image url of a campground
- * @property {Number} price - Price of a Campground
- * @property {string} description - Description of a campground
- * @property {string} location - Location Detail of a campground
- * @property {string} author - Author of a campground
- * @property {string} revies - List of reviews for the campground
- */
-const CampgroundSchema = new Schema({
-    title: String,
-    image: String,
-    price: Number,
-    description: String,
-    location: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    ]
-});
+router.route('/register')
+    .get(users.renderRegister)
+    .post(catchAsync(users.register));
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
-    if (doc) {
-        await Review.deleteMany({
-            _id: {
-                $in: doc.reviews
-            }
-        })
-    }
-})
+router.route('/login')
+    .get(users.renderLogin)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
-module.exports = mongoose.model('Campground', CampgroundSchema);</code></pre>
+router.get('/logout', users.logout)
+
+router.get('/users/:id', users.showUser)
+router.post('/users/:id', users.sendMail)
+router.get('/users/:id/contact', users.renderMail)
+module.exports = router;</code></pre>
         </article>
     </section>
 

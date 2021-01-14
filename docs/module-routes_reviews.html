@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/campground.js</title>
+    <title>JSDoc: Module: routes/reviews</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,65 +17,132 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/campground.js</h1>
+    <h1 class="page-title">Module: routes/reviews</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Module for campground model
- * @module models/campground
- */
+        
+            
+        
+    
+</header>
 
-const mongoose = require('mongoose');
-const Review = require('./review')
-const Schema = mongoose.Schema;
-/**
- * A Campground Schema
- * @typedef {Object} CampgroundSchema 
- * @property {string} title - A campground name
- * @property {string} image - Image url of a campground
- * @property {Number} price - Price of a Campground
- * @property {string} description - Description of a campground
- * @property {string} location - Location Detail of a campground
- * @property {string} author - Author of a campground
- * @property {string} revies - List of reviews for the campground
- */
-const CampgroundSchema = new Schema({
-    title: String,
-    image: String,
-    price: Number,
-    description: String,
-    location: String,
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    ]
-});
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Module for all review routes</p></div>
+        
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
-    if (doc) {
-        await Review.deleteMany({
-            _id: {
-                $in: doc.reviews
-            }
-        })
-    }
-})
+        
+            
 
-module.exports = mongoose.model('Campground', CampgroundSchema);</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="routes_reviews.js.html">routes/reviews.js</a>, <a href="routes_reviews.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
