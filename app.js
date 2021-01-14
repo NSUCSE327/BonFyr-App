@@ -17,6 +17,24 @@ const User = require('./models/user');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Bon-Fyr App',
+    version: '1.0.0',
+  },
+};
+
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./routes/*.js', './controllers/*.js', './models/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
 
 mongoose.connect('mongodb://localhost:27017/bon-fyr', {
     useNewUrlParser: true,
@@ -40,6 +58,8 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 const sessionConfig = {
@@ -75,13 +95,6 @@ app.use('/campgrounds', campgroundRoutes)
 app.use('/campgrounds/:id/reviews', reviewRoutes)
 
 
-/**
- * Function handling server side errors.
- * @name validateCampground
- * @function 
- * @inner
- * @param {callback} middleware - Express middleware.
- */
 
 
 
@@ -90,7 +103,7 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
  * @name get/
  * @function
  * @inner
- * @param {string} path - Express path
+ * @param {express.path} path - Express path
  * @param {callback} middleware - Express middleware.
  */
 app.get('/', (req, res) => {

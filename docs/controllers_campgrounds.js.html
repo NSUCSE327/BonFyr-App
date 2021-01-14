@@ -28,16 +28,31 @@
         <article>
             <pre class="prettyprint source linenums"><code>const Campground = require('../models/campground');
 
+/**
+ * @swagger
+ * Function to list all campgrounds.
+ * @name index
+ * @async
+ * @function
+ * @param {object} req - Http Req object
+ * @param {object} res - Http Res object.
+ */
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('campgrounds/index', { campgrounds })
 }
 
+/**
+ * Function to render new camp form.
+ * @name renderNewForm
+ * @function
+ * @param {object} req - Http Req object
+ * @param {object} res - Http Res object.
+ */
 module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
 }
 
-<<<<<<< HEAD
 /**
  * Function to create a nw campground.
  * @name createCampground
@@ -47,8 +62,6 @@ module.exports.renderNewForm = (req, res) => {
  * @param {object} res - Http Res object.
  * @param {object} next - Http next object.
  */
-=======
->>>>>>> fec742d0b47c4efa437f4b42834e0adf6e2ead75
 module.exports.createCampground = async (req, res, next) => {
     const campground = new Campground(req.body.campground);
     campground.author = req.user._id;
@@ -79,6 +92,14 @@ module.exports.showCampground = async (req, res,) => {
     res.render('campgrounds/show', { campground });
 }
 
+/**
+ * Function to show camp info page.
+ * @name renderEditForm
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
 module.exports.renderEditForm = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findById(id)
@@ -89,6 +110,14 @@ module.exports.renderEditForm = async (req, res) => {
     res.render('campgrounds/edit', { campground });
 }
 
+/**
+ * Function to show camp info page.
+ * @name updateCampground
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
 module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
@@ -96,6 +125,14 @@ module.exports.updateCampground = async (req, res) => {
     res.redirect(`/campgrounds/${campground._id}`)
 }
 
+/**
+ * Function to show camp info page.
+ * @name deleteCampground
+ * @function
+ * @async
+ * @param {object} req - Http Req object
+ * @param {callback} res - Http Res object.
+ */
 module.exports.deleteCampground = async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
@@ -111,21 +148,13 @@ module.exports.deleteCampground = async (req, res) => {
 </div>
 
 <nav>
-<<<<<<< HEAD
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html">all/*</a></li><li><a href="global.html#createCampground">createCampground</a></li><li><a href="global.html#express">express</a></li><li><a href="global.html">get/</a></li><li><a href="global.html">listen</a></li><li><a href="global.html#nodemailer">nodemailer</a></li><li><a href="global.html#renderMail">renderMail</a></li><li><a href="global.html#sendMail">sendMail</a></li><li><a href="global.html">showCampground</a></li><li><a href="global.html#showUser">showUser</a></li><li><a href="global.html">use/err</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html">validateCampground</a></li></ul>
-=======
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html">all/*</a></li><li><a href="global.html">delete/campgrounds/:id</a></li><li><a href="global.html#express">express</a></li><li><a href="global.html">get/</a></li><li><a href="global.html">get/campgrounds</a></li><li><a href="global.html">get/campgrounds/:id</a></li><li><a href="global.html">get/campgrounds/:id/edit</a></li><li><a href="global.html">get/campgrounds/new</a></li><li><a href="global.html">listen</a></li><li><a href="global.html">post/campgrounds</a></li><li><a href="global.html">put/campgrounds/:id</a></li><li><a href="global.html#showCampground">showCampground</a></li><li><a href="global.html">use/err</a></li><li><a href="global.html">validateCampground</a></li></ul>
->>>>>>> fec742d0b47c4efa437f4b42834e0adf6e2ead75
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-models_campground.html">models/campground</a></li></ul><h3>Global</h3><ul><li><a href="global.html">all/*</a></li><li><a href="global.html#createCampground">createCampground</a></li><li><a href="global.html#deleteCampground">deleteCampground</a></li><li><a href="global.html#express">express</a></li><li><a href="global.html">get/</a></li><li><a href="global.html#index">index</a></li><li><a href="global.html">listen</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#nodemailer">nodemailer</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#renderEditForm">renderEditForm</a></li><li><a href="global.html#renderLogin">renderLogin</a></li><li><a href="global.html#renderMail">renderMail</a></li><li><a href="global.html#renderNewForm">renderNewForm</a></li><li><a href="global.html#sendMail">sendMail</a></li><li><a href="global.html#showCampground">showCampground</a></li><li><a href="global.html#showUser">showUser</a></li><li><a href="global.html#updateCampground">updateCampground</a></li><li><a href="global.html">use/err</a></li><li><a href="global.html#User">User</a></li><li><a href="global.html">validateCampground</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-<<<<<<< HEAD
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Jan 14 2021 22:00:46 GMT+0600 (Bangladesh Standard Time)
-=======
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Jan 14 2021 14:13:28 GMT+0600 (Bangladesh Standard Time)
->>>>>>> fec742d0b47c4efa437f4b42834e0adf6e2ead75
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Fri Jan 15 2021 01:57:50 GMT+0600 (Bangladesh Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

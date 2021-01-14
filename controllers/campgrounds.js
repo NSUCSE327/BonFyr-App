@@ -1,10 +1,26 @@
 const Campground = require('../models/campground');
 
+/**
+ * @swagger
+ * Function to list all campgrounds.
+ * @name index
+ * @async
+ * @function
+ * @param {object} req - Http Req object
+ * @param {object} res - Http Res object.
+ */
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('campgrounds/index', { campgrounds })
 }
 
+/**
+ * Function to render new camp form.
+ * @name renderNewForm
+ * @function
+ * @param {object} req - Http Req object
+ * @param {object} res - Http Res object.
+ */
 module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
 }
