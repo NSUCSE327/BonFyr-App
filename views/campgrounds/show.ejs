@@ -20,13 +20,13 @@
                     <button class="btn btn-danger">Delete</button>
                 </form>
             </div>
-            <%} else  {%>
+            <% }else  {%>
                 <div class="card-body">
                     <form action="/campgrounds/<%=campground._id%>/wishlist" method="POST">
                         <button class="btn btn-sm btn-danger">Add to wishlist</button>
                     </form>
                 </div>
-            <%} %>
+                <% } %>
             <div class="card-footer text-muted">
                 2 days ago
             </div>

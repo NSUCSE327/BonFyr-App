@@ -18,7 +18,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-
+const wishlistRoutes = require('./routes/wishlist');
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
@@ -92,7 +92,7 @@ app.use((req, res, next) => {
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes)
 app.use('/campgrounds/:id/reviews', reviewRoutes)
-
+app.use('/campgrounds/:id/wishlist', wishlistRoutes);
 
 
 

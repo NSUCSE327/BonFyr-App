@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: models/review.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,39 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: models/review.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Module for review model
+ * @module models/review
+ */
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+/**
+ * @typedef {Object} reviewSchema Review Object
+ * @property {string} body - text section of a review
+ * @property {Number} rating - rating given in a review
+ * @property {User} author - author of a review
+ */
+const reviewSchema = new Schema({
+    body: String,
+    rating: Number,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
+});
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = mongoose.model("Review", reviewSchema);</code></pre>
+        </article>
+    </section>
 
 
 
