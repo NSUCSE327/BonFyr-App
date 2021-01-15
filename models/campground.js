@@ -6,6 +6,7 @@
 const mongoose = require('mongoose');
 const Review = require('./review')
 const Schema = mongoose.Schema;
+const fuzzy = require('mongoose-fuzzy-searching');
 /**
  * A Campground Schema
  * @typedef {Object} CampgroundSchema 
@@ -17,6 +18,8 @@ const Schema = mongoose.Schema;
  * @property {string} author - Author of a campground
  * @property {string[]} reviews - List of reviews for the campground
  */
+
+const opts = { toJSON: { virtuals: true } };
 const CampgroundSchema = new Schema({
     title: String,
     image: String,
@@ -44,6 +47,14 @@ const CampgroundSchema = new Schema({
             ref: 'Review'
         }
     ]
+}, opts);
+
+CampgroundSchema.plugin(fuzzy, { fields: ['title']});
+
+CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
+    return `
+    <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
+    <p>${this.description.substring(0, 20)}...</p>`
 });
 
 CampgroundSchema.post('findOneAndDelete', async function (doc) {

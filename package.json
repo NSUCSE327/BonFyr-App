@@ -21,6 +21,7 @@
     "joi": "^17.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.4",
+    "mongoose-fuzzy-searching": "^2.0.2",
     "nodemailer": "^6.4.17",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

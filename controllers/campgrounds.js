@@ -15,8 +15,16 @@ const geocoder = mbxGeocoding({accessToken: mapBoxToken})
  * @param {Express.res} res - Express Res object.
  */
 module.exports.index = async (req, res) => {
-    const campgrounds = await Campground.find({});
-    res.render('campgrounds/index', { campgrounds })
+    var search = '';
+    if(req.query.search){
+        search = req.query.search;
+        const campgrounds = await Campground.fuzzySearch(req.query.search);
+        res.render('campgrounds/index', { campgrounds, search })
+    }else{
+        const campgrounds = await Campground.find({}).populate('popupText');
+        res.render('campgrounds/index', { campgrounds, search })
+    }
+   
 }
 
 /**
