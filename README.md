@@ -7,7 +7,7 @@ Download or clone the main repository and run the following code from inside the
 ```
 npm install
 ```
-
+Once the app starts, navigate to localhost:3000. Voila!
 ## Tests
 To run tests, run the following code
 ```
