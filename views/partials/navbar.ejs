@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">BonFyr</a>
@@ -12,6 +14,14 @@
                 <a class="nav-link" href="/campgrounds/new">New Campground</a>
             </div>
             <div class="navbar-nav ml-auto">
+                <form action="/campgrounds" method="GET">
+                    <div class="input-group mb-1">
+                        <input type="text" name="search" class="form-control" required placeholder="Search Camps" aria-label="Search Camp" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
                 <% if(!currentUser) {%>
                 <a class="nav-link" href="/login">Login</a>
                 <a class="nav-link" href="/register">Register</a>
@@ -22,3 +32,4 @@
         </div>
     </div>
 </nav>
+

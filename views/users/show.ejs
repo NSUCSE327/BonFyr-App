@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="mb-3 container">
+    <div >
+        <h1><%= user.username %>'s profile</h1>
+        <% if(currentUser){ %>
+            <a class="btn btn-info" href="/users/<%=user._id%>/contact">Contact <%=user.username%></a>
+        <% } %>
+    </div>
+   
+</div>

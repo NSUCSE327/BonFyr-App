@@ -1,3 +1,7 @@
+/**
+ * Module for all review controller functions
+ * @module controllers/reviews
+ */
 const Campground = require('../models/campground');
 const Review = require('../models/review');
 

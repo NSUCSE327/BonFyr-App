@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">Mail <%=user.username%></h1>
+    <div class="col-6 offset-3">
+        <form action="/users/<%=user._id%>" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="mailBody">Mail Body</label>
+                <textarea class="form-control" type="text" id="body" name="body"
+                    required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Send Mail</button>
+            </div>
+        </form>
+        <a href="/users/<%=user._id%>">Go back</a>
+    </div>
+</div>
