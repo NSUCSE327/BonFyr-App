@@ -5,13 +5,15 @@
   "main": "app.js",
   "scripts": {
     "doc": "jsdoc -c jsdoc.json",
-    "test": "mocha"
+    "test": "mocha --timeout 10000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mapbox/mapbox-sdk": "^0.11.0",
     "connect-flash": "^0.1.1",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
@@ -30,6 +32,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "jsdoc": "^3.6.6",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.3"
   }
 }
