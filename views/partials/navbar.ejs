@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">BonFyr</a>
@@ -12,6 +14,10 @@
                 <a class="nav-link" href="/campgrounds/new">New Campground</a>
             </div>
             <div class="navbar-nav ml-auto">
+                <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+                    <input type="text" placeholder="Search.." name="search2">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
                 <% if(!currentUser) {%>
                 <a class="nav-link" href="/login">Login</a>
                 <a class="nav-link" href="/register">Register</a>
