@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: models/user.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,41 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: models/user.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Module for User Model
+ * @module models/user
+ */
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const passportLocalMongoose = require('passport-local-mongoose');
 
+/**
+ * @typedef {Object} User A User object
+ * @property {string} email - email of a user
+ * @property {string} username - username of a user
+ */
+const UserSchema = new Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }
+});
 
-    <h3> </h3>
+UserSchema.plugin(passportLocalMongoose);
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = mongoose.model('User', UserSchema);</code></pre>
+        </article>
+    </section>
 
 
 

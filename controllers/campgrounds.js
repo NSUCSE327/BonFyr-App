@@ -1,10 +1,31 @@
+/**
+ * Module for all campground controller functions
+ * @module controllers/campgrounds
+ */
 const Campground = require('../models/campground');
-
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const geocoder = mbxGeocoding({accessToken: mapBoxToken})
+/**
+ * Function to list all campgrounds.
+ * @name index
+ * @async
+ * @function
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
+ */
 module.exports.index = async (req, res) => {
-    const campgrounds = await Campground.find({});
+    const campgrounds = await Campground.find({}).populate('popupText');
     res.render('campgrounds/index', { campgrounds })
 }
 
+/**
+ * Function to render new camp form.
+ * @name renderNewForm
+ * @function
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
+ */
 module.exports.renderNewForm = (req, res) => {
     res.render('campgrounds/new');
 }
@@ -14,14 +35,20 @@ module.exports.renderNewForm = (req, res) => {
  * @name createCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {object} res - Http Res object.
- * @param {object} next - Http next object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
+ * @param {Express.next} next - Express next function.
  */
 module.exports.createCampground = async (req, res, next) => {
+    const geoData = await geocoder.forwardGeocode({
+        query: req.body.campground.location,
+        limit: 1
+    }).send()
     const campground = new Campground(req.body.campground);
+    campground.geometry = geoData.body.features[0].geometry;
     campground.author = req.user._id;
     await campground.save();
+    console.log(campground);
     req.flash('success', 'Successfully made a new campground!');
     res.redirect(`/campgrounds/${campground._id}`)
 }
@@ -31,8 +58,8 @@ module.exports.createCampground = async (req, res, next) => {
  * @name showCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.showCampground = async (req, res,) => {
     const campground = await Campground.findById(req.params.id).populate({
@@ -49,12 +76,12 @@ module.exports.showCampground = async (req, res,) => {
 }
 
 /**
- * Function to edit camp info page.
+ * Function to show camp info page.
  * @name renderEditForm
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.renderEditForm = async (req, res) => {
     const { id } = req.params;
@@ -67,12 +94,12 @@ module.exports.renderEditForm = async (req, res) => {
 }
 
 /**
- * Function to update camp info page.
+ * Function to show camp info page.
  * @name updateCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
@@ -82,12 +109,12 @@ module.exports.updateCampground = async (req, res) => {
 }
 
 /**
- * Function to delete camp info page.
+ * Function to show camp info page.
  * @name deleteCampground
  * @function
  * @async
- * @param {object} req - Http Req object
- * @param {callback} res - Http Res object.
+ * @param {Express.req} req - Express Req object
+ * @param {Express.res} res - Express Res object.
  */
 module.exports.deleteCampground = async (req, res) => {
     const { id } = req.params;

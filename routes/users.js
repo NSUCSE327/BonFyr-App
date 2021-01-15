@@ -1,3 +1,7 @@
+/**
+ * Module for all User Routes
+ * @module routes/users
+ */
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: routes/users.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: routes/users.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Module for all User Routes
+ * @module routes/users
+ */
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const catchAsync = require('../utils/catchAsync');
+const User = require('../models/user');
+const users = require('../controllers/users');
 
+router.route('/register')
+    .get(users.renderRegister)
+    .post(catchAsync(users.register));
 
-    <h3> </h3>
+router.route('/login')
+    .get(users.renderLogin)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
+router.get('/logout', users.logout)
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+router.get('/users/:id', users.showUser)
+router.post('/users/:id', users.sendMail)
+router.get('/users/:id/contact', users.renderMail)
+module.exports = router;</code></pre>
+        </article>
+    </section>
 
 
 

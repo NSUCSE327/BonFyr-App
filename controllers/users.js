@@ -1,12 +1,8 @@
 /**
- * UserSchema type object
- * @const {object}
+ * Module for all user account controller functions
+ * @module controllers/users
  */
 const User = require('../models/user');
-/**
- * requiring nodemailer
- * @const {object}
- */
 const nodemailer = require('nodemailer');
 
 /**

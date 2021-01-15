@@ -1,3 +1,7 @@
+/**
+ * Module for all campground routes
+ * @module routes/campgrounds
+ */
 const express = require('express');
 const router = express.Router();
 const campgrounds = require('../controllers/campgrounds');
@@ -12,7 +16,6 @@ router.route('/')
 
 
 router.get('/new', isLoggedIn, campgrounds.renderNewForm)
-
 
 router.route('/:id')
     .get(catchAsync(campgrounds.showCampground))
