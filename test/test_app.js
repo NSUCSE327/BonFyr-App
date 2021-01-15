@@ -26,8 +26,9 @@ describe('Campgrounds API', ()=>{
         })
     })
 
-    
-
+    /**
+    * test the GET/campgrounds/new route
+    */
     describe('GET/campgrounds/new', ()=>{
         it('Render new camp form', function(done) {
             sinon.stub(helpers, 'isLoggedIn')
@@ -46,7 +47,9 @@ describe('Campgrounds API', ()=>{
             
         });
     })
-
+    /**
+    * test the POST/campgrounds route
+    */
     describe('POST/campgrounds', ()=>{
         it('Create new camp', async function(done) {
             console.log("YOOOOOOOOO")
