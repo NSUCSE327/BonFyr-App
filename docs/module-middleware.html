@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Module: middleware</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Module: middleware</h1>
 
     
 
@@ -28,7 +28,8 @@
 
 <header>
     
-        <h2></h2>
+        
+            
         
     
 </header>
@@ -37,8 +38,24 @@
     <div class="container-overview">
     
         
+            <div class="description"><p>Module for all middleware functions</p></div>
+        
 
         
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <dl class="details">
@@ -68,6 +85,11 @@
     
 
     
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
 
     
 
@@ -75,6 +97,24 @@
 
     
 </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         
@@ -94,72 +134,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="express"><span class="type-signature">(constant) </span>express<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>express module</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -170,7 +144,7 @@
     
 
     
-    <h4 class="name" id="all/*"><span class="type-signature">(inner) </span>all/*<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~isAuthor"><span class="type-signature">(async, inner) </span>isAuthor<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -178,7 +152,7 @@
 
 
 <div class="description">
-    <p>Route handling error urls.</p>
+    <p>Middleware Function to check if a user is the author of a particular campground.</p>
 </div>
 
 
@@ -214,13 +188,13 @@
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>req</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">Express.req</span>
 
 
             
@@ -230,20 +204,20 @@
 
             
 
-            <td class="description last"><p>Express path</p></td>
+            <td class="description last"><p>Express Req object</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">Express.res</span>
 
 
             
@@ -253,7 +227,30 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Express Res object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
         </tr>
 
     
@@ -294,7 +291,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line115">line 115</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -330,7 +327,7 @@
     
 
     
-    <h4 class="name" id="get/"><span class="type-signature">(inner) </span>get/<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~isLoggedIn"><span class="type-signature">(inner) </span>isLoggedIn<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -338,7 +335,7 @@
 
 
 <div class="description">
-    <p>Route serving camp home page.</p>
+    <p>Middleware Function to check if a user is logged in.</p>
 </div>
 
 
@@ -374,13 +371,13 @@
 
         <tr>
             
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>req</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">express.path</span>
+<span class="param-type">Express.req</span>
 
 
             
@@ -390,20 +387,20 @@
 
             
 
-            <td class="description last"><p>Express path</p></td>
+            <td class="description last"><p>Express Req object</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">Express.res</span>
 
 
             
@@ -413,7 +410,30 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Express Res object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
         </tr>
 
     
@@ -454,7 +474,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line101">line 101</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -490,7 +510,7 @@
     
 
     
-    <h4 class="name" id="listen"><span class="type-signature">(inner) </span>listen<span class="signature">(port, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~isReviewAuthor"><span class="type-signature">(async, inner) </span>isReviewAuthor<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -498,7 +518,7 @@
 
 
 <div class="description">
-    <p>Function to serve on desired port</p>
+    <p>Middleware Function to check if a user is the author of a review.</p>
 </div>
 
 
@@ -534,13 +554,13 @@
 
         <tr>
             
-                <td class="name"><code>port</code></td>
+                <td class="name"><code>req</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">Express.req</span>
 
 
             
@@ -550,20 +570,20 @@
 
             
 
-            <td class="description last"><p>Port number</p></td>
+            <td class="description last"><p>Express Req object</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>middleware</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">callback</span>
+<span class="param-type">Express.res</span>
 
 
             
@@ -573,7 +593,30 @@
 
             
 
-            <td class="description last"><p>Express middleware.</p></td>
+            <td class="description last"><p>Express Res object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
         </tr>
 
     
@@ -614,7 +657,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line140">line 140</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -650,7 +693,7 @@
     
 
     
-    <h4 class="name" id="use/err"><span class="type-signature">(inner) </span>use/err<span class="signature">(middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~validateCampground"><span class="type-signature">(inner) </span>validateCampground<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -658,7 +701,190 @@
 
 
 <div class="description">
-    <p>Function handling unknown errors.</p>
+    <p>Middleware Function to check if campground information are valid.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.req</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express Req object</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.res</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express Res object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~validateReview"><span class="type-signature">(inner) </span>validateReview<span class="signature">(middleware)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A middleware function to check if a review information is valid.</p>
 </div>
 
 
@@ -751,7 +977,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="app.js.html">app.js</a>, <a href="app.js.html#line127">line 127</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line82">line 82</a>
     </li></ul></dd>
     
 

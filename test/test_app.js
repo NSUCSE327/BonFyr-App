@@ -25,6 +25,7 @@ describe('Campgrounds API', ()=>{
                 })
         })
     })
+  
   /**
      * Test the GET route
      */
@@ -38,6 +39,60 @@ describe('Campgrounds API', ()=>{
                 })
         })
     })
+
+
+    /**
+    * test the GET/campgrounds/new route
+    */
+    describe('GET/campgrounds/new', ()=>{
+        it('Render new camp form', function(done) {
+            sinon.stub(helpers, 'isLoggedIn')
+            helpers.isLoggedIn.callsFake((req, res, next) => {
+                return (req, res, next) => {
+                    next();
+                };
+            })
+            chai.request(server)
+            .get('/campgrounds/new')
+            .end(function(err, res2) {
+                res2.should.have.status(200);
+                helpers.isLoggedIn.restore()
+            })
+            done();
+            
+        });
+    })
+    /**
+    * test the POST/campgrounds route
+    */
+    describe('POST/campgrounds', ()=>{
+        it('Create new camp', async function(done) {
+            console.log("YOOOOOOOOO")
+            // helpers.isLoggedIn.callsFake((req, res, next) => {
+            //     return (req, res, next) => {
+            //         next();
+            //     };
+            // })
+            
+            sinon.stub(helpers, 'validateCampground')
+            helpers.validateCampground.callsFake((req, res, next) => {
+                return (req, res, next) => {
+                    next();
+                };
+            })
+            chai.request(server)
+            .post('/campgrounds')
+            .end(function(err, res2) {
+                res2.should.have.status(200);
+                // helpers.isLoggedIn.restore()
+                helpers.validateCampground.restore()
+            
+            })
+            done();
+            
+        });
+    });
+
     
 
 

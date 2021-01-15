@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: controllers/reviews.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: controllers/reviews.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Module for all review controller functions
+ * @module controllers/reviews
+ */
+const Campground = require('../models/campground');
+const Review = require('../models/review');
 
+module.exports.createReview = async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    const review = new Review(req.body.review);
+    review.author = req.user._id;
+    campground.reviews.push(review);
+    await review.save();
+    await campground.save();
+    req.flash('success', 'Created new review!');
+    res.redirect(`/campgrounds/${campground._id}`);
+}
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports.deleteReview = async (req, res) => {
+    const { id, reviewId } = req.params;
+    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await Review.findByIdAndDelete(reviewId);
+    req.flash('success', 'Successfully deleted review')
+    res.redirect(`/campgrounds/${id}`);
+}</code></pre>
+        </article>
+    </section>
 
 
 

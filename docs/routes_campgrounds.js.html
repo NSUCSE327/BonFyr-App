@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: routes/campgrounds.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,46 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: routes/campgrounds.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Module for all campground routes
+ * @module routes/campgrounds
+ */
+const express = require('express');
+const router = express.Router();
+const campgrounds = require('../controllers/campgrounds');
+const catchAsync = require('../utils/catchAsync');
+const { isLoggedIn, isAuthor, validateCampground } = require('../middleware');
+
+const Campground = require('../models/campground');
+
+router.route('/')
+    .get(catchAsync(campgrounds.index))
+    .post(isLoggedIn, validateCampground, catchAsync(campgrounds.createCampground))
 
 
-    <h3> </h3>
+router.get('/new', isLoggedIn, campgrounds.renderNewForm)
+
+router.route('/:id')
+    .get(catchAsync(campgrounds.showCampground))
+    .put(isLoggedIn, isAuthor, validateCampground, catchAsync(campgrounds.updateCampground))
+    .delete(isLoggedIn, isAuthor, catchAsync(campgrounds.deleteCampground));
+
+router.get('/:id/edit', isLoggedIn, isAuthor, catchAsync(campgrounds.renderEditForm))
 
 
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = router;</code></pre>
+        </article>
+    </section>
 
 
 
