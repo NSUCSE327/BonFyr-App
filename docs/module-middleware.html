@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: controllers/campgrounds</title>
+    <title>JSDoc: Module: middleware</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: controllers/campgrounds</h1>
+    <h1 class="page-title">Module: middleware</h1>
 
     
 
@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Module for all campground controller functions</p></div>
+            <div class="description"><p>Module for all middleware functions</p></div>
         
 
         
@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line1">line 1</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -144,7 +144,7 @@
     
 
     
-    <h4 class="name" id="~createCampground"><span class="type-signature">(async, inner) </span>createCampground<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~isAuthor"><span class="type-signature">(async, inner) </span>isAuthor<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -152,7 +152,7 @@
 
 
 <div class="description">
-    <p>Function to create a nw campground.</p>
+    <p>Middleware Function to check if a user is the author of a particular campground.</p>
 </div>
 
 
@@ -291,7 +291,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line31">line 31</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -327,7 +327,7 @@
     
 
     
-    <h4 class="name" id="~deleteCampground"><span class="type-signature">(async, inner) </span>deleteCampground<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~isLoggedIn"><span class="type-signature">(inner) </span>isLoggedIn<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -335,7 +335,7 @@
 
 
 <div class="description">
-    <p>Function to show camp info page.</p>
+    <p>Middleware Function to check if a user is logged in.</p>
 </div>
 
 
@@ -414,6 +414,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -451,7 +474,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line103">line 103</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -487,7 +510,7 @@
     
 
     
-    <h4 class="name" id="~index"><span class="type-signature">(async, inner) </span>index<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~isReviewAuthor"><span class="type-signature">(async, inner) </span>isReviewAuthor<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -495,7 +518,7 @@
 
 
 <div class="description">
-    <p>Function to list all campgrounds.</p>
+    <p>Middleware Function to check if a user is the author of a review.</p>
 </div>
 
 
@@ -574,6 +597,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -611,7 +657,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line7">line 7</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -647,7 +693,7 @@
     
 
     
-    <h4 class="name" id="~renderEditForm"><span class="type-signature">(async, inner) </span>renderEditForm<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~validateCampground"><span class="type-signature">(inner) </span>validateCampground<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
     
 
     
@@ -655,7 +701,7 @@
 
 
 <div class="description">
-    <p>Function to show camp info page.</p>
+    <p>Middleware Function to check if campground information are valid.</p>
 </div>
 
 
@@ -734,6 +780,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>next</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Express.next</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express next function.</p></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -771,7 +840,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line70">line 70</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -807,7 +876,7 @@
     
 
     
-    <h4 class="name" id="~renderNewForm"><span class="type-signature">(inner) </span>renderNewForm<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~validateReview"><span class="type-signature">(inner) </span>validateReview<span class="signature">(middleware)</span><span class="type-signature"></span></h4>
     
 
     
@@ -815,7 +884,7 @@
 
 
 <div class="description">
-    <p>Function to render new camp form.</p>
+    <p>A middleware function to check if a review information is valid.</p>
 </div>
 
 
@@ -851,13 +920,13 @@
 
         <tr>
             
-                <td class="name"><code>req</code></td>
+                <td class="name"><code>middleware</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Express.req</span>
+<span class="param-type">callback</span>
 
 
             
@@ -867,30 +936,7 @@
 
             
 
-            <td class="description last"><p>Express Req object</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>res</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Express.res</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express Res object.</p></td>
+            <td class="description last"><p>Express middleware.</p></td>
         </tr>
 
     
@@ -931,327 +977,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~showCampground"><span class="type-signature">(async, inner) </span>showCampground<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>Function to show camp info page.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>req</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Express.req</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express Req object</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>res</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Express.res</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express Res object.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line48">line 48</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~updateCampground"><span class="type-signature">(async, inner) </span>updateCampground<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>Function to show camp info page.</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>req</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Express.req</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express Req object</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>res</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Express.res</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express Res object.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_campgrounds.js.html">controllers/campgrounds.js</a>, <a href="controllers_campgrounds.js.html#line88">line 88</a>
+        <a href="middleware.js.html">middleware.js</a>, <a href="middleware.js.html#line82">line 82</a>
     </li></ul></dd>
     
 

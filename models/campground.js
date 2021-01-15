@@ -15,7 +15,7 @@ const Schema = mongoose.Schema;
  * @property {string} description - Description of a campground
  * @property {string} location - Location Detail of a campground
  * @property {string} author - Author of a campground
- * @property {string} revies - List of reviews for the campground
+ * @property {string[]} reviews - List of reviews for the campground
  */
 const CampgroundSchema = new Schema({
     title: String,
