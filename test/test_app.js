@@ -25,6 +25,21 @@ describe('Campgrounds API', ()=>{
                 })
         })
     })
+  
+  /**
+     * Test the GET route
+     */
+    describe('GET /campgrounds', ()=>{
+        it("It should GET all the campgrounds", (done) => {
+            chai.request(server)
+                .get("/campgrounds")
+                .end((err, res) => {
+                    res.should.have.status(200);
+                done();
+                })
+        })
+    })
+
 
     /**
     * test the GET/campgrounds/new route
@@ -77,6 +92,7 @@ describe('Campgrounds API', ()=>{
             
         });
     });
+
     
 
 
