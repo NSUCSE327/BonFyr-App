@@ -6,6 +6,7 @@
 const mongoose = require('mongoose');
 const Review = require('./review')
 const Schema = mongoose.Schema;
+const fuzzy = require('mongoose-fuzzy-searching');
 /**
  * A Campground Schema
  * @typedef {Object} CampgroundSchema 
@@ -47,6 +48,8 @@ const CampgroundSchema = new Schema({
         }
     ]
 }, opts);
+
+CampgroundSchema.plugin(fuzzy, { fields: ['title']});
 
 CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
     return `
